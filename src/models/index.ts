@@ -1,4 +1,4 @@
-import Supplier from './supplier.model';
+import Supplier from '../suppliers/entities/supplier.entity';
 import Product from './product.model';
 import ProductSupplier from './productSupplier.model';
 import PurchaseOrder from './purchaseOrder.model';
