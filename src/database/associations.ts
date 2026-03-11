@@ -1,9 +1,9 @@
 import Supplier from '../suppliers/entities/supplier.entity';
-import Product from './product.model';
-import ProductSupplier from './productSupplier.model';
-import PurchaseOrder from './purchaseOrder.model';
-import PurchaseOrderItem from './purchaseOrderItem.model';
-import InventoryTransaction from './inventoryTransaction.model';
+import Product from '../models/product.model';
+import ProductSupplier from '../models/productSupplier.model';
+import PurchaseOrder from '../models/purchaseOrder.model';
+import PurchaseOrderItem from '../models/purchaseOrderItem.model';
+import InventoryTransaction from '../models/inventoryTransaction.model';
 
 Supplier.hasMany(PurchaseOrder, { foreignKey: 'supplierId' });
 PurchaseOrder.belongsTo(Supplier);
@@ -16,12 +16,3 @@ PurchaseOrderItem.belongsTo(Product);
 
 Product.hasMany(InventoryTransaction, { foreignKey: 'productId' });
 InventoryTransaction.belongsTo(Product);
-
-export {
-  Supplier,
-  Product,
-  ProductSupplier,
-  PurchaseOrder,
-  PurchaseOrderItem,
-  InventoryTransaction
-};
