@@ -1,13 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import Supplier  from './entities/supplier.entity';
+import { CreateSupplierDto } from './dto/create-supplier.dto';
 
 @Injectable()
 export class SuppliersService {
 
   // CREATE SUPPLIER
-  async create(data: any) {
-    const supplier = await Supplier.create(data);
-    return supplier;
+  async create(createSupplierDto: CreateSupplierDto) {
+    const supplier = await Supplier.create(createSupplierDto);
+      return supplier;
   }
 
   // LIST SUPPLIERS
@@ -57,7 +58,7 @@ export class SuppliersService {
       throw new NotFoundException('Supplier not found');
     }
 
-    await supplier.update({ is_active: false });
+    await supplier.update({ isActive: false });
 
     return {
       message: 'Supplier deactivated successfully'
