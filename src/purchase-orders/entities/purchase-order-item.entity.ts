@@ -10,19 +10,23 @@ const PurchaseOrderItem = sequelize.define('PurchaseOrderItem',{
   },
 
   purchaseOrderId:{
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    field:'purchase_order_id'
   },
 
   productId:{
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    field:'product_id'
   },
 
   orderedQty:{
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    field:'ordered_qty'
   },
 
   receivedQty:{
     type:DataTypes.INTEGER,
+    field:'received_qty',
     defaultValue:0
   },
 
@@ -31,7 +35,7 @@ const PurchaseOrderItem = sequelize.define('PurchaseOrderItem',{
   }
 
 },{
-  tableName:'purchase_order_items',
+  tableName:'purchase_order_item',
   timestamps:false
 });
 
