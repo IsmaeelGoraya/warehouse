@@ -76,7 +76,7 @@ export class PurchaseOrdersService {
   async findOne(id: number) {
 
     const order = await PurchaseOrder.findByPk(id, {
-      include: [PurchaseOrderItem]
+      include: [{model:PurchaseOrderItem,as:'items'}]
     });
 
     if (!order) {
