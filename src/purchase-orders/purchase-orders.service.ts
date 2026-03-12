@@ -66,7 +66,10 @@ export class PurchaseOrdersService {
   async findAll() {
 
     return PurchaseOrder.findAll({
-      include: [{model:PurchaseOrderItem,as:'items'}]
+      include: [{
+        model: PurchaseOrderItem,
+        as: 'items'
+      }]
     });
 
   }
@@ -76,7 +79,10 @@ export class PurchaseOrdersService {
   async findOne(id: number) {
 
     const order = await PurchaseOrder.findByPk(id, {
-      include: [{model:PurchaseOrderItem,as:'items'}]
+      include: [{
+        model: PurchaseOrderItem,
+        as: 'items'
+      }]
     });
 
     if (!order) {
