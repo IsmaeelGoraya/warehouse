@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import Supplier  from './entities/supplier.entity';
 import { CreateSupplierDto } from './dto/create-supplier.dto';
+import { UpdateSupplierDto } from './dto/update-supplier.dto';
 
 @Injectable()
 export class SuppliersService {
@@ -36,7 +37,7 @@ export class SuppliersService {
   }
 
   // UPDATE SUPPLIER
-  async update(id: number, data: any) {
+  async update(id: number, updateSupplierDto: UpdateSupplierDto) {
 
     const supplier = await Supplier.findByPk(id);
 
@@ -44,7 +45,7 @@ export class SuppliersService {
       throw new NotFoundException('Supplier not found');
     }
 
-    await supplier.update(data);
+    await supplier.update(updateSupplierDto);
 
     return supplier;
   }
