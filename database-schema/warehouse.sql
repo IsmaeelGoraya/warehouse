@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict M5dSYBSSC1nZXhEp1Ze3JaXMA01x84pQjpxkGbiS5f7t51S8BxEKIHpgWaZ50CD
+\restrict J0duPWDKqsCg6kP9HYAgcKkYntXZwZYoOBCc3oiQvmeSxOczmhru9uAdfni71Zy
 
 -- Dumped from database version 14.20 (Homebrew)
 -- Dumped by pg_dump version 14.20 (Homebrew)
@@ -59,6 +59,7 @@ CREATE TABLE public.inventory_transaction (
     reference_type character varying(50),
     reference_id integer,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT inventory_transaction_quantity_check CHECK ((quantity > 0))
 );
 
@@ -445,5 +446,5 @@ ALTER TABLE ONLY public.product_supplier
 -- PostgreSQL database dump complete
 --
 
-\unrestrict M5dSYBSSC1nZXhEp1Ze3JaXMA01x84pQjpxkGbiS5f7t51S8BxEKIHpgWaZ50CD
+\unrestrict J0duPWDKqsCg6kP9HYAgcKkYntXZwZYoOBCc3oiQvmeSxOczmhru9uAdfni71Zy
 

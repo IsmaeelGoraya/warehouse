@@ -10,11 +10,13 @@ const InventoryTransaction = sequelize.define('InventoryTransaction',{
   },
 
   productId:{
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    field:"product_id"
   },
 
   transactionType:{
-    type:DataTypes.ENUM('IN','OUT')
+    type:DataTypes.ENUM('IN','OUT'),
+    field:"transaction_type"
   },
 
   quantity:{
@@ -22,16 +24,20 @@ const InventoryTransaction = sequelize.define('InventoryTransaction',{
   },
 
   referenceType:{
-    type:DataTypes.STRING
+    type:DataTypes.STRING,
+    field:"reference_type"
   },
 
   referenceId:{
-    type:DataTypes.INTEGER
+    type:DataTypes.INTEGER,
+    field:"reference_id"
   }
 
 },{
-  tableName:'inventory_transactions',
-  timestamps:true
+  tableName:'inventory_transaction',
+  timestamps:true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
 });
 
 export default InventoryTransaction;
