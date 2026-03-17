@@ -4,6 +4,7 @@ import { CreatePurchaseOrderDto } from './dto/create-purchase-order.dto';
 import { AddItemDto } from './dto/add-item.dto';
 import { UpdateStatusDto } from './dto/update-status.dto'
 import { ReceiveItemsDto } from './dto/receive-items.dto'
+import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('purchase-orders')
 export class PurchaseOrdersController {
@@ -11,12 +12,14 @@ export class PurchaseOrdersController {
   constructor(private readonly purchaseOrdersService: PurchaseOrdersService) {}
 
   // CREATE PURCHASE ORDER
+  @ApiOperation({summary:'Create a new purchase order'})
   @Post()
   create(@Body() dto: CreatePurchaseOrderDto) {
     return this.purchaseOrdersService.create(dto);
   }
 
   // ADD ITEM
+  @ApiOperation({summary:'Add items in a purchase order'})
   @Post(':id/items')
   addItem(
     @Param('id') id: number,
@@ -26,18 +29,21 @@ export class PurchaseOrdersController {
   }
 
   // LIST PURCHASE ORDERS
+  @ApiOperation({summary:'Get list of all purchase orders'})
   @Get()
   findAll() {
     return this.purchaseOrdersService.findAll();
   }
 
   // GET PURCHASE ORDER DETAILS
+  @ApiOperation({summary:'Get detail of a purchase order'})
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.purchaseOrdersService.findOne(id);
   }
 
   // UPDATE STATUS
+  @ApiOperation({summary:'Update purchase order status'})
   @Patch(':id/status')
   updateStatus(
     @Param('id') id: number,
@@ -47,6 +53,7 @@ export class PurchaseOrdersController {
   }
 
   // RECEIVE ITEMS
+  @ApiOperation({summary:'Receive purchase order items'})
   @Post(':id/receive')
   receiveItems(
     @Param('id') id: number,
