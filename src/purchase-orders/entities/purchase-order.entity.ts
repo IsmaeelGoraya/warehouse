@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from 'sequelize';
-import sequelize from '../../config/database';
+import sequelize from '../../config/database.config';
 import { PurchaseOrderStatus } from '../../common/enums/purchase-order-status.enum';
 
 /* Attributes stored in DB */
